@@ -54,6 +54,22 @@ function moreLanguages() {
 function withCommonLanguage() {
     res = {};
 
+    Object.values(Country.all_countries).forEach((c) => {
+        c.languages.forEach((lang) => {
+            c.borders.forEach((b) => {
+                let border = Country.all_countries[b];
+
+                if (border.languages.includes(lang)) {
+                    if (!res[c.alpha3Code]) res[c.alpha3Code] = {};
+
+                    if (res[c.alpha3Code][lang])
+                        res[c.alpha3Code][lang].push(border.alpha3Code);
+                    else res[c.alpha3Code][lang] = [border.alpha3Code];
+                }
+            });
+        });
+    });
+
     return res;
 }
 //Q6
