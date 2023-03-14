@@ -45,4 +45,4 @@ fill_db();
 // console.log(neighborless());
 // console.log(moreNeighbors());
 // console.log(moreTopLevelDomains());
-// console.log(moreLanguages());
+console.log(moreLanguages());
