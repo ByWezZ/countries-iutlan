@@ -99,7 +99,11 @@ function withoutCommonCurrency() {
 }
 
 //Q7
-function sortingDecreasingDensity() {}
+function sortingDecreasingDensity() {
+    return Object.values(Country.all_countries).sort(
+        (a, b) => b.getPopDensity() - a.getPopDensity()
+    );
+}
 
 //Q8
 function moreTopLevelDomains() {

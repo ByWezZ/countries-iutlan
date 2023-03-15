@@ -48,3 +48,4 @@ fill_db();
 // console.log(moreLanguages());
 // console.log(withCommonLanguage());
 // console.log(withoutCommonCurrency());
+console.log(sortingDecreasingDensity());
