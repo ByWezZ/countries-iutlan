@@ -4,6 +4,9 @@ body {
     font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 h2 {
@@ -19,6 +22,17 @@ h3 {
     line-height: 11px;
 }
 
+section {
+    max-width: 900px;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
 article {
     display: flex;
     flex-direction: column;
@@ -32,6 +46,8 @@ article {
     border: 1px solid #ffffff;
     box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
+
+    text-align: center;
 }
 
 article > img {
@@ -51,6 +67,10 @@ article > div {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: baseline;
+}
+
+article > div > img {
+    width: 11px;
 }
 
 article > div > h3 {
