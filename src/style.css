@@ -1,3 +1,58 @@
 body {
     background-color: #040720;
+    color: white;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 15px;
+    line-height: 17px;
+    color: white;
+}
+
+h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 11px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 140px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffffff;
+    box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+article > img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+article > h2 {
+    margin: 10px 0 5px 0;
+}
+
+article > div {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+article > div > h3 {
+    margin: 0;
 }
