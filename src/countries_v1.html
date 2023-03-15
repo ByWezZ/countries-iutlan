@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Template</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="js/countries.js"></script>
+        <script src="js/country.js"></script>
+        <script src="js/currency.js"></script>
+        <script src="js/language.js"></script>
+        <script src="js/test.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <section id="contents">
+            <script>
+                let contentSection = document.getElementById('contents');
+
+                if (contentSection)
+                    Object.values(Country.all_countries).forEach((country) => {
+                        let article = document.createElement('article');
+                        let image = document.createElement('img');
+                        let countryName = document.createElement('h2');
+                        let regionContainer = document.createElement('div');
+                        let pinIcon = document.createElement('img');
+                        let regionName = document.createElement('h3');
+
+                        image.setAttribute('src', country.flag);
+                        image.setAttribute('alt', 'Contry flag');
+
+                        let countryTextNode = document.createTextNode(
+                            country.name
+                        );
+                        countryName.appendChild(countryTextNode);
+
+                        pinIcon.setAttribute('src', 'assets/icons/pin.png');
+                        pinIcon.setAttribute('alt', 'Pin icon');
+                        let regionTextNode = document.createTextNode(
+                            `${country.capital} - ${country.region}`
+                        );
+                        regionName.appendChild(regionTextNode);
+                        regionContainer.append(pinIcon, regionName);
+
+                        article.append(image, countryName, regionContainer);
+
+                        contentSection.appendChild(article);
+                    });
+            </script>
+        </section>
+    </body>
+</html>
