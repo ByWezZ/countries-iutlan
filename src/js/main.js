@@ -46,4 +46,5 @@ fill_db();
 // console.log(moreNeighbors());
 // console.log(moreTopLevelDomains());
 // console.log(moreLanguages());
-console.log(withCommonLanguage());
+// console.log(withCommonLanguage());
+// console.log(withoutCommonCurrency());

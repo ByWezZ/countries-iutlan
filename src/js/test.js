@@ -73,8 +73,32 @@ function withCommonLanguage() {
     return res;
 }
 //Q6
-function withoutCommonCurrency() {}
-//Q7exi
+
+function withoutCommonCurrency() {
+    res = [];
+    foundCommonCurrency = false;
+    i = 0;
+
+    Object.values(Country.all_countries).forEach((c) => {
+        while (!foundCommonCurrency && i < c.borders.length) {
+            Country.all_countries[c.borders[i]].currencies.forEach((bc) => {
+                if (c.currencies.includes(bc)) {
+                    foundCommonCurrency = true;
+                }
+            });
+            ++i;
+        }
+        if (!foundCommonCurrency) {
+            res.push(c);
+        }
+        foundCommonCurrency = false;
+        i = 0;
+    });
+
+    return res;
+}
+
+//Q7
 function sortingDecreasingDensity() {}
 
 //Q8
