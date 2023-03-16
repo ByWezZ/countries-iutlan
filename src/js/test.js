@@ -72,8 +72,8 @@ function withCommonLanguage() {
 
     return res;
 }
-//Q6
 
+//Q6
 function withoutCommonCurrency() {
     res = [];
     foundCommonCurrency = false;
@@ -113,4 +113,20 @@ function moreTopLevelDomains() {
 }
 
 //Q9
-function veryLongTrip(country_name) {}
+
+function accessibleFrom(country_code) {
+    let visited = [];
+    let res = [];
+
+    (function dfs(visited, country_code) {
+        if (!visited.includes(country_code)) {
+            visited.push(country_code);
+            res.push(Country.all_countries[country_code]);
+            Country.all_countries[country_code].getBorders().forEach((b) => {
+                dfs(visited, b.alpha3Code);
+            });
+        }
+    })(visited, country_code);
+
+    return res;
+}
