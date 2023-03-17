@@ -39,8 +39,9 @@ article {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    width: 170px;
-    height: 140px;
+    min-width: 170px;
+    min-height: 140px;
+    padding: 10px;
 
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid #ffffff;
@@ -57,7 +58,7 @@ article > img {
 }
 
 article > h2 {
-    margin: 10px 0 5px 0;
+    margin: 0 0 5px 0;
 }
 
 article > div {
@@ -67,6 +68,7 @@ article > div {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 5px;
 }
 
 article > div > img {
@@ -75,4 +77,10 @@ article > div > img {
 
 article > div > h3 {
     margin: 0;
+    font-size: 1em;
+}
+
+article > p {
+    margin: 0;
+    font-size: 0.75em;
 }

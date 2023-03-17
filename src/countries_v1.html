@@ -26,24 +26,60 @@
                         let regionContainer = document.createElement('div');
                         let pinIcon = document.createElement('img');
                         let regionName = document.createElement('h3');
+                        let population = document.createElement('p');
+                        let area = document.createElement('p');
+                        let density = document.createElement('p');
+
+                        countryName.appendChild(
+                            document.createTextNode(country.name)
+                        );
 
                         image.setAttribute('src', country.flag);
                         image.setAttribute('alt', 'Contry flag');
 
-                        let countryTextNode = document.createTextNode(
-                            country.name
-                        );
-                        countryName.appendChild(countryTextNode);
-
                         pinIcon.setAttribute('src', 'assets/icons/pin.png');
                         pinIcon.setAttribute('alt', 'Pin icon');
-                        let regionTextNode = document.createTextNode(
-                            `${country.capital} - ${country.region}`
+                        regionName.appendChild(
+                            document.createTextNode(
+                                `${country.capital} - ${country.region}`
+                            )
                         );
-                        regionName.appendChild(regionTextNode);
                         regionContainer.append(pinIcon, regionName);
 
-                        article.append(image, countryName, regionContainer);
+                        population.appendChild(
+                            document.createTextNode(
+                                `Pop. : ${country.population}`
+                            )
+                        );
+
+                        area.appendChild(
+                            document.createTextNode(
+                                `Area : ${new Intl.NumberFormat('en-EN', {
+                                    style: 'unit',
+                                    unit: 'kilometer',
+                                    maximumSignificantDigits: 3,
+                                    unitDisplay: 'short',
+                                }).format(country.area)}²`
+                            )
+                        );
+
+                        density.appendChild(
+                            document.createTextNode(
+                                `Density : ${new Intl.NumberFormat('en-EN', {
+                                    style: 'decimal',
+                                    maximumSignificantDigits: 3,
+                                }).format(country.getPopDensity())} inhab/km²`
+                            )
+                        );
+
+                        article.append(
+                            countryName,
+                            image,
+                            regionContainer,
+                            population,
+                            area,
+                            density
+                        );
 
                         contentSection.appendChild(article);
                     });
