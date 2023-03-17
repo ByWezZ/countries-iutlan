@@ -113,20 +113,17 @@ function moreTopLevelDomains() {
 }
 
 //Q9
-
-function accessibleFrom(country_code) {
+function veryLongTrip(country_code) {
     let visited = [];
-    let res = [];
 
     (function dfs(visited, country_code) {
         if (!visited.includes(country_code)) {
             visited.push(country_code);
-            res.push(Country.all_countries[country_code]);
             Country.all_countries[country_code].getBorders().forEach((b) => {
                 dfs(visited, b.alpha3Code);
             });
         }
     })(visited, country_code);
 
-    return res;
+    return visited.map((elem) => Country.all_countries[elem]);
 }
