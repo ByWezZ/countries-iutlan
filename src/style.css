@@ -96,7 +96,14 @@ nav#pagination {
     gap: 15px;
 }
 
-nav > img {
+nav > button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}
+
+nav > button > img {
     width: 25px;
     height: 25px;
 }

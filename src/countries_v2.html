@@ -17,22 +17,20 @@
     <body>
         <section id="contents">
             <script>
-                let contentSection = document.getElementById('contents');
-                let offset = 0;
+                let contentSection = getCountriesParent();
 
-                if (contentSection)
-                    displayCountries(
-                        Object.values(Country.all_countries).slice(
-                            offset * 25,
-                            (offset + 1) * 25
-                        ),
-                        contentSection
-                    );
+                if (contentSection) {
+                    displayCountries(contentSection);
+                }
             </script>
         </section>
         <nav id="pagination">
-            <img src="./assets/icons/left-arrow.png" alt="Previous page" />
-            <img src="./assets/icons/right-arrow.png" alt="Next page" />
+            <button id="prev-btn" onclick="previousPageButtonHandler()">
+                <img src="./assets/icons/left-arrow.png" alt="" />
+            </button>
+            <button id="next-btn" onclick="nextPageButtonHandler()">
+                <img src="./assets/icons/right-arrow.png" alt="" />
+            </button>
         </nav>
     </body>
 </html>
