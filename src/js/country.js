@@ -72,6 +72,52 @@ class Country {
         return this.languages.map((iso2) => Language.all_languages[iso2]);
     }
 
+    nameToTextNode() {
+        return document.createTextNode(this.name);
+    }
+
+    capitalRegionToTextNode() {
+        return document.createTextNode(this.region);
+    }
+
+    areaToTextNode() {
+        return document.createTextNode(
+            `Area : ${
+                this.area
+                    ? new Intl.NumberFormat('en-EN', {
+                          style: 'unit',
+                          unit: 'kilometer',
+                          maximumSignificantDigits: 3,
+                          unitDisplay: 'short',
+                      }).format(this.area) + '²'
+                    : 'Unknown'
+            }`
+        );
+    }
+
+    populationToTextNode() {
+        return document.createTextNode(this.population);
+    }
+
+    densityToTextNode() {
+        return document.createTextNode(
+            `Density : ${
+                this.getPopDensity()
+                    ? `${new Intl.NumberFormat('en-EN', {
+                          style: 'decimal',
+                          maximumSignificantDigits: 3,
+                      }).format(this.getPopDensity())} inhab/km²`
+                    : 'Unknown'
+            }`
+        );
+    }
+
+    regionNameToTextNode() {
+        return document.createTextNode(
+            `${this.capital ? `${this.capital} - ` : ''}${this.region}`
+        );
+    }
+
     toArticle() {
         let article = document.createElement('article');
         let image = document.createElement('img');
@@ -83,51 +129,21 @@ class Country {
         let area = document.createElement('p');
         let density = document.createElement('p');
 
-        countryName.appendChild(document.createTextNode(this.name));
+        countryName.appendChild(this.nameToTextNode());
 
         image.setAttribute('src', this.flag);
         image.setAttribute('alt', 'Flag of ' + this.name);
 
         pinIcon.setAttribute('src', 'assets/icons/pin.png');
         pinIcon.setAttribute('alt', 'Pin icon');
-        regionName.appendChild(
-            document.createTextNode(
-                `${this.capital ? `${this.capital} - ` : ''}${this.region}`
-            )
-        );
+        regionName.appendChild(this.regionNameToTextNode());
         regionContainer.append(pinIcon, regionName);
 
-        population.appendChild(
-            document.createTextNode(`Pop. : ${this.population}`)
-        );
+        population.appendChild(this.populationToTextNode());
 
-        area.appendChild(
-            document.createTextNode(
-                `Area : ${
-                    this.area
-                        ? new Intl.NumberFormat('en-EN', {
-                              style: 'unit',
-                              unit: 'kilometer',
-                              maximumSignificantDigits: 3,
-                              unitDisplay: 'short',
-                          }).format(this.area) + '²'
-                        : 'Unknown'
-                }`
-            )
-        );
+        area.appendChild(this.areaToTextNode());
 
-        density.appendChild(
-            document.createTextNode(
-                `Density : ${
-                    this.getPopDensity()
-                        ? `${new Intl.NumberFormat('en-EN', {
-                              style: 'decimal',
-                              maximumSignificantDigits: 3,
-                          }).format(this.getPopDensity())} inhab/km²`
-                        : 'Unknown'
-                }`
-            )
-        );
+        density.appendChild(this.densityToTextNode());
 
         article.append(
             countryName,
