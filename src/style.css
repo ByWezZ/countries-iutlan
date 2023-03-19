@@ -23,7 +23,7 @@ h3 {
 }
 
 section {
-    max-width: 900px;
+    max-width: 1000px;
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
@@ -39,7 +39,7 @@ article {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    min-width: 170px;
+    width: 170px;
     min-height: 140px;
     padding: 10px;
 

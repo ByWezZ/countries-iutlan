@@ -35,13 +35,17 @@
                         );
 
                         image.setAttribute('src', country.flag);
-                        image.setAttribute('alt', 'Contry flag');
+                        image.setAttribute('alt', 'Flag of ' + country.name);
 
                         pinIcon.setAttribute('src', 'assets/icons/pin.png');
                         pinIcon.setAttribute('alt', 'Pin icon');
                         regionName.appendChild(
                             document.createTextNode(
-                                `${country.capital} - ${country.region}`
+                                `${
+                                    country.capital
+                                        ? `${country.capital} - `
+                                        : ''
+                                }${country.region}`
                             )
                         );
                         regionContainer.append(pinIcon, regionName);
@@ -54,21 +58,31 @@
 
                         area.appendChild(
                             document.createTextNode(
-                                `Area : ${new Intl.NumberFormat('en-EN', {
-                                    style: 'unit',
-                                    unit: 'kilometer',
-                                    maximumSignificantDigits: 3,
-                                    unitDisplay: 'short',
-                                }).format(country.area)}²`
+                                `Area : ${
+                                    country.area
+                                        ? new Intl.NumberFormat('en-EN', {
+                                              style: 'unit',
+                                              unit: 'kilometer',
+                                              maximumSignificantDigits: 3,
+                                              unitDisplay: 'short',
+                                          }).format(country.area) + '²'
+                                        : 'Unknown'
+                                }`
                             )
                         );
 
                         density.appendChild(
                             document.createTextNode(
-                                `Density : ${new Intl.NumberFormat('en-EN', {
-                                    style: 'decimal',
-                                    maximumSignificantDigits: 3,
-                                }).format(country.getPopDensity())} inhab/km²`
+                                `Density : ${
+                                    country.getPopDensity()
+                                        ? `${new Intl.NumberFormat('en-EN', {
+                                              style: 'decimal',
+                                              maximumSignificantDigits: 3,
+                                          }).format(
+                                              country.getPopDensity()
+                                          )} inhab/km²`
+                                        : 'Unknown'
+                                }`
                             )
                         );
 
