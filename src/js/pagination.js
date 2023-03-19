@@ -8,7 +8,12 @@ function updateCountry(element, country) {
 
     element.style.display = 'flex';
 
-    name.replaceChildren(document.createTextNode(country.name));
+    name.replaceChildren(country.nameToTextNode());
+    image.setAttribute('src', country.getFlagSvgURL());
+    capitalRegion.replaceChildren(country.capitalRegionToTextNode());
+    population.replaceChildren(country.populationToTextNode());
+    area.replaceChildren(country.areaToTextNode());
+    density.replaceChildren(country.densityToTextNode());
 }
 
 let page = 0;
