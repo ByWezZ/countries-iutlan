@@ -14,5 +14,5 @@ jobs:
                   server: 193.34.79.4
                   username: vcolomer
                   server-dir: /httpdocs/
-                  local-dir: ./source/
+                  local-dir: ./src/
                   password: ${{ secrets.ftp_password }}
