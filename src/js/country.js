@@ -71,4 +71,73 @@ class Country {
     getLanguages() {
         return this.languages.map((iso2) => Language.all_languages[iso2]);
     }
+
+    toArticle() {
+        let article = document.createElement('article');
+        let image = document.createElement('img');
+        let countryName = document.createElement('h2');
+        let regionContainer = document.createElement('div');
+        let pinIcon = document.createElement('img');
+        let regionName = document.createElement('h3');
+        let population = document.createElement('p');
+        let area = document.createElement('p');
+        let density = document.createElement('p');
+
+        countryName.appendChild(document.createTextNode(this.name));
+
+        image.setAttribute('src', this.flag);
+        image.setAttribute('alt', 'Flag of ' + this.name);
+
+        pinIcon.setAttribute('src', 'assets/icons/pin.png');
+        pinIcon.setAttribute('alt', 'Pin icon');
+        regionName.appendChild(
+            document.createTextNode(
+                `${this.capital ? `${this.capital} - ` : ''}${this.region}`
+            )
+        );
+        regionContainer.append(pinIcon, regionName);
+
+        population.appendChild(
+            document.createTextNode(`Pop. : ${this.population}`)
+        );
+
+        area.appendChild(
+            document.createTextNode(
+                `Area : ${
+                    this.area
+                        ? new Intl.NumberFormat('en-EN', {
+                              style: 'unit',
+                              unit: 'kilometer',
+                              maximumSignificantDigits: 3,
+                              unitDisplay: 'short',
+                          }).format(this.area) + '²'
+                        : 'Unknown'
+                }`
+            )
+        );
+
+        density.appendChild(
+            document.createTextNode(
+                `Density : ${
+                    this.getPopDensity()
+                        ? `${new Intl.NumberFormat('en-EN', {
+                              style: 'decimal',
+                              maximumSignificantDigits: 3,
+                          }).format(this.getPopDensity())} inhab/km²`
+                        : 'Unknown'
+                }`
+            )
+        );
+
+        article.append(
+            countryName,
+            image,
+            regionContainer,
+            population,
+            area,
+            density
+        );
+
+        return article;
+    }
 }

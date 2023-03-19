@@ -5,8 +5,10 @@ body {
     font-style: normal;
     font-weight: 400;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
 }
 
 h2 {
@@ -83,4 +85,18 @@ article > div > h3 {
 article > p {
     margin: 0;
     font-size: 0.75em;
+}
+
+nav#pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 15px;
+}
+
+nav > img {
+    width: 25px;
+    height: 25px;
 }
