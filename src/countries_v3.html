@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Template</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="js/countries.js"></script>
+        <script src="js/country.js"></script>
+        <script src="js/currency.js"></script>
+        <script src="js/language.js"></script>
+        <script src="js/test.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/pagination.js"></script>
+    </head>
+    <body>
+        <div id="popup-holder">
+            <aside id="country-details">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg"
+                    alt="Country Flag"
+                />
+                <div>
+                    <h2>Country Name</h2>
+                    <div>
+                        <img src="assets/icons/pin.png" alt="Capital icon" />
+                        <h3>Capital</h3>
+                    </div>
+                    <div>
+                        <img
+                            src="assets/icons/africa.png"
+                            alt="Continent icon"
+                        />
+                        <h3>Continent</h3>
+                    </div>
+                </div>
+            </aside>
+            <aside id="flag">
+                <img src="" alt="" />
+            </aside>
+        </div>
+        <section id="contents">
+            <script>
+                let contentSection = getCountriesParent();
+
+                if (contentSection) {
+                    displayCountries(contentSection);
+                }
+            </script>
+        </section>
+        <nav id="pagination">
+            <button id="prev-btn" onclick="previousPageButtonHandler()">
+                <img src="./assets/icons/left-arrow.png" alt="" />
+            </button>
+            <button id="next-btn" onclick="nextPageButtonHandler()">
+                <img src="./assets/icons/right-arrow.png" alt="" />
+            </button>
+        </nav>
+    </body>
+</html>
