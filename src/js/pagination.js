@@ -8,6 +8,8 @@ function updateCountry(element, country) {
 
     element.style.display = 'flex';
 
+    element.setAttribute('id', country.alpha3Code);
+
     name.replaceChildren(country.nameToTextNode());
     image.setAttribute('src', country.getFlagSvgURL());
     capitalRegion.replaceChildren(country.capitalRegionToTextNode());

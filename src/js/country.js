@@ -129,6 +129,8 @@ class Country {
         let area = document.createElement('p');
         let density = document.createElement('p');
 
+        article.setAttribute('id', this.alpha3Code);
+
         countryName.appendChild(this.nameToTextNode());
 
         image.setAttribute('src', this.flag);
