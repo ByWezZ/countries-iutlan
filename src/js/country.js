@@ -99,7 +99,9 @@ class Country {
     }
 
     populationToTextNode() {
-        return document.createTextNode(this.population);
+        return document.createTextNode(
+            `${this.population ? `Pop : ` + this.population : `Unknown`}`
+        );
     }
 
     areaToTextNode() {
