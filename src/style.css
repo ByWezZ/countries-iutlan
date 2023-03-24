@@ -39,7 +39,7 @@ article {
 /* POP UP */
 
 div#popup-holder {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 
