@@ -35,14 +35,14 @@ function displayCountries(parent) {
             // If a card already exists, update it to reflect the actual country
             updateCountry(currChild, country);
         } else {
-            // If not, create a card with the values of the actual country
+            // If not, creates a card with the values of the actual country
             console.log(country);
             let article = country.toArticle();
             parent.appendChild(article);
         }
     });
 
-    // Hide all elements that we don't want to be visible, but we want them to stay on the DOM
+    // Hides all elements that we don't want to be visible, but we want them to stay on the DOM
     for (let i = tab.length + 1; parent.children.item(i); i++) {
         let currChild = parent.children.item(i);
         currChild.style.display = 'none';
