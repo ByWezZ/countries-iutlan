@@ -36,7 +36,7 @@ function displayCountries(parent) {
             updateCountry(currChild, country);
         } else {
             // If not, creates a card with the values of the actual country
-            console.log(country);
+            // console.log(country);
             let article = country.toArticle();
             parent.appendChild(article);
         }

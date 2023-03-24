@@ -5,11 +5,18 @@ let detailPopup = document.getElementById('country-details');
 let flagPopup = document.getElementById('flag');
 
 function openDetailsPopup(country) {
-    console.log(country);
+    // console.log(country);
     popupHolder.style.display = 'flex';
     detailPopup.style.display = 'flex';
 
-    // TO DO : Populate popup
+    let name = detailPopup.getElementsByTagName('h2').item(0);
+    let flg = detailPopup.getElementsByTagName('img').item(0);
+    let capital = detailPopup.getElementsByTagName('h3').item(0);
+    let continent = detailPopup.getElementsByTagName('h3').item(1);
+    name.replaceChildren(country.nameToTextNode());
+    flg.setAttribute('src', country.getFlagSvgURL());
+    capital.replaceChildren(country.capitalToTextNode());
+    continent.replaceChildren(country.regionToTextNode());
 }
 
 function openFlagPopup(country) {
