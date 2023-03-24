@@ -80,6 +80,18 @@ class Country {
         return document.createTextNode(this.name);
     }
 
+    capitalToTextNode() {
+        return document.createTextNode(
+            `${this.capital ? `${this.capital}` : 'Unknown'}`
+        );
+    }
+
+    regionToTextNode() {
+        return document.createTextNode(
+            `${this.region ? `${this.region}` : `Unknown`}`
+        );
+    }
+
     capitalRegionToTextNode() {
         return document.createTextNode(
             `${this.capital ? `${this.capital} - ` : ''}${this.region}`
