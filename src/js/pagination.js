@@ -1,4 +1,5 @@
 const NUMBER_OF_ELEM_PER_PAGE = 25;
+currentDisplayedCountries = [];
 
 function updateCountry(element, country) {
     let name = element.getElementsByTagName('h2').item(0);
@@ -23,8 +24,8 @@ let page = 0;
 /**
  * Display all countries
  */
-function displayCountries(parent) {
-    let tab = Object.values(Country.all_countries).slice(
+function displayCountries(parent, countries) {
+    let tab = countries.slice(
         page * NUMBER_OF_ELEM_PER_PAGE,
         (page + 1) * NUMBER_OF_ELEM_PER_PAGE
     );
@@ -56,15 +57,22 @@ function getCountriesParent() {
 function previousPageButtonHandler() {
     if (page > 0) {
         page--;
-        displayCountries(getCountriesParent());
+        displayCountries(getCountriesParent(), currentDisplayedCountries);
     }
 }
 function nextPageButtonHandler() {
-    if (
-        page + 1 <
-        Object.values(Country.all_countries).length / NUMBER_OF_ELEM_PER_PAGE
-    ) {
+    if (page + 1 < currentDisplayedCountries.length / NUMBER_OF_ELEM_PER_PAGE) {
         page++;
-        displayCountries(getCountriesParent());
+        displayCountries(getCountriesParent(), currentDisplayedCountries);
     }
+}
+
+function searchCountries() {
+    page = 0;
+    let searchField = document.getElementById('searchbar').value;
+    currentDisplayedCountries = Object.values(Country.all_countries).filter(
+        (c) => c.name.toLowerCase().includes(searchField.toLowerCase())
+    );
+
+    displayCountries(getCountriesParent(), currentDisplayedCountries); //This line will be erased for mutli-criteria research
 }
