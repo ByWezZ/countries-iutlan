@@ -25,6 +25,7 @@ let page = 0;
  * Display all countries
  */
 function displayCountries(parent, countries) {
+    currentDisplayedCountries = countries;
     let tab = countries.slice(
         page * NUMBER_OF_ELEM_PER_PAGE,
         (page + 1) * NUMBER_OF_ELEM_PER_PAGE
