@@ -36,9 +36,16 @@ article {
     text-align: center;
 }
 div#search-menu {
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 900px;
+    padding: 0 50px;
+}
+
+#search-menu > select {
+    height: initial;
+    min-width: 125px;
 }
 
 div#searchbar-container {

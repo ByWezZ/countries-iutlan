@@ -52,3 +52,4 @@ fill_db();
 // console.log(veryLongTrip('FRA'));
 // console.log(veryLongTrip('FRA'));
 // console.log(Country.getAllRegions());
+// console.log(Country.getAllLanguages());
