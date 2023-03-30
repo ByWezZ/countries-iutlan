@@ -21,6 +21,12 @@ class Country {
         this.languages = obj.languages?.map((lang) => lang.iso639_2) || [];
     }
 
+    static getAllRegions() {
+        return Object.values(Country.all_countries)
+            .map((c) => c.region)
+            .filter((r, i, arr) => i == arr.indexOf(r));
+    }
+
     toString() {
         let str = '';
         str += 'Alpha 3 Code : ' + this.alpha3Code + '\n';

@@ -51,3 +51,4 @@ fill_db();
 // console.log(sortingDecreasingDensity());
 // console.log(veryLongTrip('FRA'));
 // console.log(veryLongTrip('FRA'));
+// console.log(Country.getAllRegions());
