@@ -27,6 +27,13 @@ class Country {
             .filter((r, i, arr) => i == arr.indexOf(r));
     }
 
+    static getAllLanguages() {
+        return Object.values(Country.all_countries)
+            .map((c) => c.languages)
+            .flat()
+            .filter((r, i, arr) => i == arr.indexOf(r));
+    }
+
     toString() {
         let str = '';
         str += 'Alpha 3 Code : ' + this.alpha3Code + '\n';
