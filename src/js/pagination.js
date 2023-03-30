@@ -67,13 +67,3 @@ function nextPageButtonHandler() {
         displayCountries(getCountriesParent(), currentDisplayedCountries);
     }
 }
-
-function searchCountries() {
-    page = 0;
-    let searchField = document.getElementById('searchbar').value;
-    currentDisplayedCountries = Object.values(Country.all_countries).filter(
-        (c) => c.name.toLowerCase().includes(searchField.toLowerCase())
-    );
-
-    displayCountries(getCountriesParent(), currentDisplayedCountries); //This line will be erased for mutli-criteria research
-}
