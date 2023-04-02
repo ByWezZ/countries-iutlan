@@ -21,8 +21,10 @@ function onFilterChange() {
 
     page = 0;
     let searchField = document.getElementById('searchbar').value;
-    currentDisplayedCountries = currentDisplayedCountries.filter((c) =>
-        c.name.toLowerCase().includes(searchField.toLowerCase())
+    currentDisplayedCountries = currentDisplayedCountries.filter(
+        (c) =>
+            c.name.toLowerCase().includes(searchField.toLowerCase()) ||
+            c.translations.fr?.toLowerCase().includes(searchField.toLowerCase())
     );
 
     displayCountries(getCountriesParent(), currentDisplayedCountries); //This line will be erased for mutli-criteria research
