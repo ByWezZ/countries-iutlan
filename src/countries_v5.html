@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Template</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="js/countries.js"></script>
+        <script src="js/country.js"></script>
+        <script src="js/currency.js"></script>
+        <script src="js/language.js"></script>
+        <script src="js/test.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/pagination.js"></script>
+    </head>
+    <body>
+        <div id="search-menu">
+            <select id="region" onchange="onFilterChange()">
+                <option value="" selected>All regions</option>
+            </select>
+            <select id="language" onchange="onFilterChange()">
+                <option value="" selected>All languages</option>
+            </select>
+            <div id="searchbar-container">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    onkeyup="onFilterChange()"
+                    id="searchbar"
+                />
+                <img src="assets/icons/search.png" alt="Loop icon" />
+            </div>
+            <details>
+                <summary>
+                    <img src="./assets/icons/sort.png" alt="Filters" />
+                </summary>
+                <div>
+                    <div>
+                        <p>Sort by :</p>
+                        <select id="sort-select">
+                            <option value="name" selected>Name</option>
+                            <option value="population" selected>
+                                Population
+                            </option>
+                            <option value="area" selected>Area</option>
+                            <option value="density" selected>Density</option>
+                            <option value="region" selected>Region</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Sens :</p>
+                        <img
+                            src="assets/icons/up-arrow.png"
+                            alt="Ascending"
+                            onclick="sortAscendant()"
+                        /><img
+                            src="assets/icons/down-arrow-fill.png"
+                            alt="Descending"
+                            onclick="sortDescendant()"
+                        />
+                    </div>
+                </div>
+            </details>
+        </div>
+        <div id="popup-holder">
+            <dialog id="country-details">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg"
+                    alt="Country Flag"
+                />
+                <div>
+                    <h2>Country Name</h2>
+                    <div>
+                        <img src="assets/icons/pin.png" alt="Capital icon" />
+                        <h3>Capital</h3>
+                    </div>
+                    <div>
+                        <img
+                            src="assets/icons/africa.png"
+                            alt="Continent icon"
+                        />
+                        <h3>Continent</h3>
+                    </div>
+                </div>
+            </dialog>
+            <dialog id="flag">
+                <img
+                    src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+                    alt="loading icon"
+                />
+            </dialog>
+        </div>
+        <section id="contents">
+            <script>
+                let contentSection = getCountriesParent();
+
+                if (contentSection) {
+                    displayCountries(
+                        contentSection,
+                        Object.values(Country.all_countries)
+                    );
+                }
+            </script>
+        </section>
+        <nav id="pagination">
+            <button id="prev-btn" onclick="previousPageButtonHandler()">
+                <img src="./assets/icons/left-arrow.png" alt="" />
+            </button>
+            <button id="next-btn" onclick="nextPageButtonHandler()">
+                <img src="./assets/icons/right-arrow.png" alt="" />
+            </button>
+        </nav>
+        <script src="js/details.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/sort.js"></script>
+    </body>
+</html>
