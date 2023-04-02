@@ -16,7 +16,7 @@
     </head>
     <body>
         <div id="search-menu">
-            <select id="region">
+            <select id="region" onchange="onFilterChange()">
                 <option value="" selected>All regions</option>
             </select>
             <select id="language">
@@ -26,7 +26,7 @@
                 <input
                     type="text"
                     placeholder="Search..."
-                    onkeyup="searchCountries()"
+                    onkeyup="onFilterChange()"
                     id="searchbar"
                 />
                 <img src="assets/icons/search.png" alt="Loop icon" />
