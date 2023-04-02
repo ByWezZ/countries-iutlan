@@ -10,9 +10,7 @@
         <script src="js/country.js"></script>
         <script src="js/currency.js"></script>
         <script src="js/language.js"></script>
-        <script src="js/test.js"></script>
         <script src="js/fill_db.js"></script>
-        <script src="js/main.js"></script>
         <script src="js/pagination.js"></script>
     </head>
     <body>
@@ -32,6 +30,37 @@
                 />
                 <img src="assets/icons/search.png" alt="Loop icon" />
             </div>
+            <details>
+                <summary>
+                    <img src="./assets/icons/sort.png" alt="Filters" />
+                </summary>
+                <div>
+                    <div>
+                        <p>Sort by :</p>
+                        <select id="sort-select" onchange="onSortChange()">
+                            <option value="name" selected>Name</option>
+                            <option value="population">Population</option>
+                            <option value="area">Area</option>
+                            <option value="density">Density</option>
+                            <option value="region">Region</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Sens :</p>
+                        <img
+                            id="ascendant"
+                            src="assets/icons/up-arrow-fill.png"
+                            alt="Ascending"
+                            onclick="sortAscendant()"
+                        /><img
+                            id="descendant"
+                            src="assets/icons/down-arrow.png"
+                            alt="Descending"
+                            onclick="sortDescendant()"
+                        />
+                    </div>
+                </div>
+            </details>
         </div>
         <div id="popup-holder">
             <dialog id="country-details">
@@ -66,12 +95,16 @@
             <script>
                 let contentSection = getCountriesParent();
 
-                if (contentSection) {
-                    displayCountries(
-                        contentSection,
-                        Object.values(Country.all_countries)
-                    );
-                }
+                if (contentSection)
+                    fetch('http://localhost:8080/gateway_to_restcountries.php')
+                        .then((r) => r.json())
+                        .then((r) => {
+                            fillDbFrom(r);
+                            displayCountries(
+                                contentSection,
+                                Object.values(Country.all_countries)
+                            );
+                        });
             </script>
         </section>
         <nav id="pagination">
@@ -84,5 +117,6 @@
         </nav>
         <script src="js/details.js"></script>
         <script src="js/filters.js"></script>
+        <script src="js/sort.js"></script>
     </body>
 </html>

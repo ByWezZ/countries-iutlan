@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+    node:
+        build: .
+        container_name: 'php-server'
+        command: php -S php-server:8080
+        ports:
+            - 8080:8080
