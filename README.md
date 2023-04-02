@@ -1,5 +1,15 @@
 # countries-iutlan
 
+## Website
+
+You can access the website by following [this link](https://anthonin.vcolomer.fr/countries_v5.html)
+
+## Design
+
+The design is available here : https://www.figma.com/file/HzEf7rR7QsajoO56sjGJze/Countries?node-id=47%3A209&t=uEXZBDRJNhxfKPHv-1
+
+Since the design has been started earlier than the project and without the project specifications, the design slightly differ from the actual website.
+
 ## Attribution
 
 Special thanks to :
