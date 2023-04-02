@@ -13,10 +13,18 @@ function openDetailsPopup(country) {
     let flg = detailPopup.getElementsByTagName('img').item(0);
     let capital = detailPopup.getElementsByTagName('h3').item(0);
     let continent = detailPopup.getElementsByTagName('h3').item(1);
+    let description = detailPopup.getElementsByTagName('p').item(0);
     name.replaceChildren(country.nameToTextNode());
     flg.setAttribute('src', country.getFlagSvgURL());
     capital.replaceChildren(country.capitalToTextNode());
     continent.replaceChildren(country.regionToTextNode());
+    description.replaceChildren(
+        `${country.name} has ${country.population} residents and has ${
+            country.borders.length
+        } borders, which is : ${country.borders
+            .map((b) => Country.all_countries[b].name)
+            .join(', ')}`
+    );
 }
 
 function openFlagPopup(country) {
