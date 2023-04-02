@@ -38,24 +38,24 @@
                 <div>
                     <div>
                         <p>Sort by :</p>
-                        <select id="sort-select">
+                        <select id="sort-select" onchange="onSortChange()">
                             <option value="name" selected>Name</option>
-                            <option value="population" selected>
-                                Population
-                            </option>
-                            <option value="area" selected>Area</option>
-                            <option value="density" selected>Density</option>
-                            <option value="region" selected>Region</option>
+                            <option value="population">Population</option>
+                            <option value="area">Area</option>
+                            <option value="density">Density</option>
+                            <option value="region">Region</option>
                         </select>
                     </div>
                     <div>
                         <p>Sens :</p>
                         <img
-                            src="assets/icons/up-arrow.png"
+                            id="ascendant"
+                            src="assets/icons/up-arrow-fill.png"
                             alt="Ascending"
                             onclick="sortAscendant()"
                         /><img
-                            src="assets/icons/down-arrow-fill.png"
+                            id="descendant"
+                            src="assets/icons/down-arrow.png"
                             alt="Descending"
                             onclick="sortDescendant()"
                         />

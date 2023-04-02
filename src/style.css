@@ -129,6 +129,7 @@ div#searchbar-container > img {
 #search-menu details > div img {
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 
 /* POP UP */
@@ -218,6 +219,7 @@ article {
     width: 170px;
     min-height: 140px;
     padding: 10px;
+    cursor: pointer;
 }
 
 article > img {
